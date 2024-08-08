@@ -729,3 +729,110 @@ let color1 = () => {
 
 
 
+//--------------------------------------------------//
+
+
+let obj = {
+    Name : "Anshul",
+    Age: 18,
+}
+
+let sample = {
+
+    work() {
+        console.log("do your work");
+    },
+
+    Branch : "CS",
+}
+
+
+obj.__proto__ = sample;
+
+
+
+//--------------------------------------------------//
+
+
+
+class myClass {
+
+    constructor() {
+        console.log("anshul");
+    }
+    
+    start() {
+        console.log("start");
+    }
+
+    stop() {
+        console.log("stop");
+    }
+
+
+}
+
+
+let car = new myClass();
+
+
+class toyotaCar {
+
+    constructor(abc) {
+      
+        console.log(abc);
+    }
+
+    model(abc) {
+        console.log("fortuner");
+        console.log(abc);
+        this.Brand = abc;
+    }
+
+
+}
+
+
+
+let toyotaFortuner = new toyotaCar("CAR CREATED");
+
+
+
+
+
+//--------------------------------------------------//
+
+
+
+class User {
+    constructor(Name , Email){
+        this.name = Name;
+        this.email = Email;
+        console.log("OBJECT IS CREATED");
+    }
+
+    viewData(){
+        console.log("Website Data");
+    }
+}
+
+let user1 = new User("ANSHUL" , "anshul@gamil.com");
+
+
+let user2 = new User("ANSH" , "ansh@gamil.com");
+
+let user3 = new User("SIDD" , "sidd@gamil.com");
+
+
+class Admin extends User{
+   constructor(name , eamil){
+    super(name , eamil);
+   }
+
+   editData(){
+    console.log("EDIT WEBSITE DATA");
+   } 
+}
+
+
+let admin = new Admin("admin1" , "admin1@gamil.com");
