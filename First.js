@@ -836,3 +836,132 @@ class Admin extends User{
 
 
 let admin = new Admin("admin1" , "admin1@gamil.com");
+
+//--------------------------------------------------//
+
+
+
+try{
+    console.log(cbs);
+}catch(b){
+    console.log(b);
+}
+
+
+//--------------------------------------------------//
+
+
+
+//--------------CALLBACK----------------------------//
+
+
+
+
+// //-----------CALLBACK HELL--------------------------//
+
+
+function print ( data, recall) {
+    setTimeout(() => {
+        console.log(`Data${data}`);
+        if(recall){
+            recall();
+        }
+    },2000)
+}
+
+// print(1 , () => {
+//     print(2 ,() => {
+//         print(3 ,() => {
+//             print(4);
+//         })
+//     });
+// });
+
+// // --------------------------------------------------//
+
+function print ( data, recall) {
+    return new Promise((resolve , reject) => {
+        setTimeout(() => {
+            console.log(`Data${data}`);
+            if(recall){
+                recall();
+            };
+            resolve("Success");
+        },5000);
+        
+    })
+}
+
+
+// // --------------------------------------------------//
+
+
+// // ----THAT'S HOW PROMISES PREVENT CALLBACK HELL-----//
+
+
+function data (i) {
+    return new Promise((resolve , reject) => {
+        setTimeout(() => {
+            console.log(`Data${i}`);
+            resolve();
+        },2000);
+        
+    })
+}
+
+
+// let p1 = data(1);
+// p1.then(() => {
+//     console.log("fetching data2.......")
+//     let p2 = data(2);
+//     p2.then(() => {
+//         console.log("fetching data3.......");
+//         let p3 = data(3);
+//         p3.then(()=> {
+//             console.log("fetching data4.......");
+//             let p4 = data(4);
+//         })
+//     })
+// })
+
+
+// // --------------------------------------------------//
+
+
+// ------------------PROMISE CHAINING-------------------//
+
+// data(1).then(() => {
+//     return data(2);
+// }).then(() => {
+//     return data(3);
+// }).then(() => {
+//     return data(4);
+// })
+
+
+// // --------------------------------------------------//
+
+
+// // ----------------ASYNC - AWAIT---------------------//
+
+
+function printData (i) {
+    return new Promise ((resolve , reject) => {
+        setTimeout(() => {
+            console.log("data",i);
+            resolve();
+        } , 2000);
+        
+    })
+}
+
+
+(async function () {
+    console.log("getting data1.....");
+    await printData(1);
+    console.log("getting data2.....");
+    await printData(2);
+    console.log("getting data3.....");
+    await printData(3);
+}) ();
+
